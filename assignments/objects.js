@@ -112,13 +112,23 @@ const parent = {
 }
 
 // Log the parent object's name
-
+console.log(parent.name);
 // Log the child's age
-
+console.log(parent.child.age);
 // Log the name and age of the grandchild
-
+console.log(Object.values(parent.child.grandchild));
 // Have the parent speak
-
+  parent.speak = function (talk) {
+    console.log(`Hello, my name is ${this.name}, and I am ${this.age} years old.`);
+  }
+  parent.speak();
 // Have the child speak
-
+parent.child.speak = function (talk) {
+  console.log(`Hello my name is ${this.name}, and I am ${this.age} years old.`);
+}
+parent.child.speak();
 // Have the grandchild speak
+parent.child.grandchild.speak = function (talk) {
+  console.log(`Hello my name is ${this.name}, and I am ${this.age} years old.`);
+}
+parent.child.grandchild.speak();
